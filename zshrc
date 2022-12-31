@@ -14,7 +14,7 @@ unsetopt nomatch
 #=========================#
 
 # unset RPS1
-source ~/bin/git-prompt.sh
+#source ~/bin/git-prompt.sh
 setopt PROMPT_SUBST
 export GIT_PS1_SHOWUPSTREAM="verbose"
 export GIT_PS1_SHOWDIRTYSTATE=true
@@ -22,6 +22,7 @@ export GIT_PS1_SHOWDIRTYSTATE=true
 
 # Load promptinit
 autoload -Uz promptinit && promptinit
+autoload -Uz vcs_info
 
 prompt_jj_setup() {
     # For colors, check https://misc.flogisoft.com/bash/tip_colors_and_formatting
@@ -39,7 +40,7 @@ prompt_jj_setup() {
     prompt_jj_line_1a+=" "
     prompt_jj_line_1a+="${prompt_jj_color3}%~"
     prompt_jj_line_1a+=" "
-    prompt_jj_line_1a+="${prompt_jj_color4}\$(__git_ps1 '%s')"
+#    prompt_jj_line_1a+="${prompt_jj_color4}\$(__git_ps1 '%s')"
     prompt_jj_line_1a+="${prompt_jj_color1}├"
 
     prompt_jj_line_1b=""
@@ -57,7 +58,7 @@ prompt_jj_precmd() {
     prompt_jj_line_1_size=${#prompt_jj_line_1_exp}
     prompt_jj_line_1_padding_size=$(( COLUMNS - prompt_jj_line_1_size ))
     # Over-correction for UTF-8 chars
-    prompt_jj_line_1_padding_size=$(( prompt_jj_line_1_padding_size + 14))
+    #prompt_jj_line_1_padding_size=$(( prompt_jj_line_1_padding_size + 14))
 
     if (( prompt_jj_line_1_size > 0 )); then
         prompt_jj_line_1="${prompt_jj_line_1a}$(printf '─%.0s' {1..$prompt_jj_line_1_padding_size})${prompt_jj_line_1b}"
