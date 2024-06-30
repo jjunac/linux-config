@@ -8,6 +8,8 @@ alias h='history 0 | grep '
 alias c="clear"
 alias q="exit"
 alias \\q="\\exit"
+alias reload='source ~/.zshrc'
+
 
 alias ..="cd .."
 alias ..2="cd ../.."
